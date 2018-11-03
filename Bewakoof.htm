@@ -1,0 +1,221 @@
+﻿<html>
+<head>
+<title>Bewakoof.com</title>
+<style>
+
+h2
+{
+background-color: white;
+padding: 30px 35px;
+margin: -10px -50px;
+text-align:center;
+border-radius: 10px 10px 0 0;
+}
+
+hr
+{
+margin: 10px -50px;
+border: 0;
+border-top: 1px solid #ccc;
+margin-bottom: 40px;
+}
+
+div.container
+{
+width: 900px;
+height: 600px;
+margin:35px auto;
+font-family: 'Raleway', sans-serif;
+}
+
+div.main
+{
+width: 300px;
+padding: 10px 50px 25px;
+border: 2px solid gray;
+border-radius: 10px;
+font-family: raleway;
+float:left;
+margin-top:50px;
+}
+
+input[type=text],input[type=password]
+{
+width: 100%;
+height: 40px;
+padding: 5px;
+margin-bottom: 25px;
+margin-top: 5px;
+border: 2px solid #ccc;
+color: #4f4f4f;
+font-size: 16px;
+border-radius: 5px;
+}
+
+label
+{
+color: #464646;
+text-shadow: 0 1px 0 #fff;
+font-size: 14px;
+font-weight: bold;
+}
+
+center
+{
+font-size:32px;
+}
+
+.note
+{
+color:red;
+}
+
+.valid
+{
+color:green;
+}
+
+.back
+{
+text-decoration: none;
+border: 1px solid rgb(0, 143, 255);
+background-color: rgb(0, 214, 255);
+padding: 3px 20px;
+border-radius: 2px;
+color: black;
+}
+
+input[type=button]
+{
+font-size: 16px;
+background: linear-gradient(#ffbc00 5%, #ffdd7f 100%);
+border: 1px solid #e5a900;
+color: #4E4D4B;
+font-weight: bold;
+cursor: pointer;
+width: 100%;
+border-radius: 5px;
+padding: 10px 0;
+outline:none;
+}
+
+input[type=button]:hover
+{
+background: linear-gradient(#ffdd7f 5%, #ffbc00 100%);
+}
+
+.navbar 
+{
+overflow:hidden;
+background-color: #333;
+position:sticky;
+width: 100%;
+height:8%;
+top:0px;
+z-index: 1;
+}
+
+.navbar a 
+{
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px; 
+}
+
+.navbar a:hover 
+{
+  background: #ddd;
+  color: black;
+}
+
+.topnav .search-container 
+{
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover 
+{
+  background: #ccc;
+}
+
+.main 
+{
+  padding: 16px;
+  margin-top: 30px;
+  height: 1200px; 
+}
+</style>
+</head>
+
+<body background="C:\Users\Raviteja\Desktop\hero.jpg">
+
+<div style= "text-align:center">
+    <img src="C:\Users\Raviteja\Desktop\bj.png" height="25%" width=28%">
+</div>
+
+<div class="navbar">
+  <a href="#myshop">MY SHOP</a>
+  <a href="#myaccessories">ACCESSORIES</a>
+  <a href="#home&lifestyle">HOME&LIFESTYLE</a>
+  <a href="#flyer&deals">FLYER&DEALS</a>
+  <a href="#recipes">ELECTRONICS</a>
+  <a href="#wellness">WELLNESS</a>
+</div>
+
+<div class="container" style="position:relative; left: 20%;">
+<div class="main" style="position-right:25%; top:0px; height:330px;">
+<h2>Welcome to Bewakoof.com</h2><br>
+<form id="form_id" method="post" name="myform"  >
+<label>User Name :</label>
+<input type="text" name="username" id="username"/>
+<label>Password :</label>
+<input type="password" name="password" id="password"/>
+<input type="button" value="Login"  id="submit" onclick="validate();"/>
+</form>
+</div>
+</div>
+
+<script>
+var attempt = 3; 
+function validate()
+{
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    if ( username == "Trustme" && password == "trust@123"){
+    alert ("Login successfully");
+    window.location = "add.html"; // Redirecting to other page.
+    return false;
+}
+else
+{
+    attempt --;
+    alert("You have left "+attempt+" attempt;");
+    if( attempt == 0){
+    document.getElementById("username").disabled = true;
+    document.getElementById("password").disabled = true;
+    document.getElementById("submit").disabled = true;
+    return false;
+}
+}
+}
+</script>
+
+<footer >
+ <div style="background-color:white; float:left;padding-top:10px;margin-right:20px; width:100.5%; text-align: center; ">
+   <a href="#about" style="color:black;font-size:23px;margin-bottom:10px; text-align:center;cursor: context-menu;">About Us</a><br></br>
+   </p style="text-align: center;"><span>&copy; Copyright 2058 | www.Bewakoof.com.All Rights Reserved.</span></p>
+ </div>
+</footer>
+</body>
+</html>
