@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial;
+    padding: 10px;
+    background:#FFD700;
+}
+
+/* Header/Blog Title */
+.header {
+    padding: 30px;
+    text-align: center;
+    background: white;
+}
+
+.header h1 {
+    font-size: 50px;
+}
+
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+    float: left;
+    width: 500px;
+    margin-left:100px;
+}
+
+/* Right column */
+.rightcolumn 
+{
+   
+    float: left;
+    width: 600px;
+    height:0px;
+    background-color: #f1f1f1;
+    padding-left: 60px;
+    position:relative;
+    top:0px;
+    margin-right:0px;
+}
+
+/* Fake image */
+.fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 39px;
+}
+
+/* Add a card effect for articles */
+.card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Footer */
+.footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+    margin-top: 20px;
+}
+input[type='submit'], button, [aria-label]{
+      cursor: pointer;
+    }
+    #spoiler{
+      display: none;
+    }
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+        width: 100%;
+        padding: 0;
+    }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+    .topnav a {
+        float: none;
+        width: 100%;
+    }
+}
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".add-row").click(function(){
+            var name = $("#name").val();
+            var email = $("#email").val();
+            var markup = "<tr><td><input type='radio' name='record' class='empname'></td><td>" + name + "</td><td>" + email + "</td></tr>";
+            $("table tbody").append(markup);
+
+
+
+        $("#name").val([]);
+        $("#email").val([]);
+
+        });
+
+
+        
+        // Find and remove selected table rows
+        $(".delete-row").click(function(){
+            $("table tbody").find('input[name="record"]').each(function(){
+              if($(this).is(":checked")){
+
+             $(this).parents("tr").remove();
+
+		 $("#name").val([]);
+  		 $("#email").val([]);
+
+                }
+            });
+        });
+
+
+
+        /* Edit selected table rows
+        $(".edit-row").click(function(){
+            $("table tbody").find('input[name="record"]').each(function(){
+              if($(this).is(":checked")){
+                    $(this).parents("tr").edit();
+                }
+            });
+        });*/
+
+/*$('input[name="record"]').click(function () {
+		var t = document.getElementsByTagName("input");
+		for(i=0;i<t.length;i++){
+        name  = document.getElementsByTagName('td')[3].innerHTML;
+        email = document.getElementsByTagName('td')[4].innerHTML;
+        document.getElementById("name").value = name;
+        document.getElementById("email").value = email;
+		
+		}
+});*/
+
+
+
+$(document).on('click','.empname',function () {
+var t=document.getElementsByClassName("empname");
+	for (i=0;i<t.length;i++){
+	if(t[i].checked){
+	debugger;
+		var nam  = document.getElementsByTagName('td')[(i*3)+1].innerHTML;
+		
+       var emai = document.getElementsByTagName('td')[(i*3)+2].innerHTML;
+        document.getElementById("name").value = nam;
+        document.getElementById("email").value = emai;
+	}
+	}
+});
+    });  
+  
+</script>
+</head>
+<body>
+
+<div style= "text-align:center">
+    <img src="C:\Users\Raviteja\Desktop\bj.png" alt="bewakoof"  height="5%" width=18%">
+</div>
+
+<div class="topnav">
+  <a href="#">Home</a>
+  <a href="#">Opinions</a>
+  <a href="#">Details </a>
+  <a href="#" style="float:right">login/Register</a>
+</div>
+     
+<p style="text-align:center; font-size:200%;"> <b> Welcome to Bewakoof.com Employee Details</b></p>
+
+<h2 style="text-align:left;"> Employees List</h2>
+
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+     
+     
+      <div class="fakeimg" style="height:200px;">    
+        <table>
+        <thead>
+            <tr>
+                <th  style="position:relative;right:15px">Select</th>
+                <th style="position:relative;left:3px" >Name</th>
+                <th style="position:relative;left:16px">Email</th>
+            </tr>
+        </thead>
+        <tbody  style="position:relative;left:60px">
+            <tr>
+                <td><input type="radio" name="record" class="empname"></td>
+                <td>Latha Sri </td>
+                <td>lathasri@gmail.com</td>
+            </tr>
+			<tr>
+                <td><input type="radio" name="record" class="empname"></td>
+                <td>Sri </td>
+                <td>sri@gmail.com</td>
+            </tr>
+        </tbody>
+    </table>      
+</div>
+     
+    </div>
+    
+  </div>
+  <div class="rightcolumn">
+      
+    <div class="card">
+     <h3>Bewakoof Employee Details</h3>
+      <div class="fakeimg">
+        <form>
+        <input type="text" id="name" placeholder="Name"><br>
+        <input type="text" id="email" placeholder="Email Address"><br>
+      <input type="button" class="add-row" value="Add Row">
+      <button type="button" class="delete-row" >Delete Row</button>
+    
+    </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer >
+ <div style="background-color:white; float:left;padding-top:16px;margin-right:20px; width:100.5%; text-align: center; ">
+   <a href="#about" style="color:black;font-size:23px;margin-bottom:10px; text-align:center;cursor: context-menu;">About Us</a><br></br>
+   </p style="text-align: center;"><span>&copy; Copyright 2058 | www.Bewakoof.com.All Rights Reserved.</span></p>
+ </div>
+</footer> 
+</body>
+</html>
